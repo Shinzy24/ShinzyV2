@@ -8,7 +8,7 @@ try:
 except:
         pass
 
-ext = Extension("cracks",sources=["Shinzy.c"])
+ext = Extension("cracks",sources=["app.c"])
 
 setup(
 	ext_modules=[ext],
