@@ -1,21 +1,16 @@
-import os,sys
-from distutils.core import setup
-from distutils.extension import Extension
-from Cython.Distutils import build_ext
+import sys, os
 
-try:
-        os.system('rm -rf *.so')
-except:
-        pass
+M = ('\x1b[1;91m')
+H = ('\x1b[1;92m')
+U = ('\x1b[1;95m')
+O = ('\x1b[1;96m')
 
-ext = Extension("cracks",sources=["Shinzy.c"])
+if sys.version[0:3] != "3.1":
+  sys.exit("\n%s!%s anda harus menggunakan versi %spython 3.1%s,%s versi python anda sekarang%s:%s %s "%(U,O,H,M,O,M,H,sys.version[0:3]))
 
-setup(
-	ext_modules=[ext],
-	cmdclass={"build_ext": build_ext}
-)
-
-try:
-	os.system("rm -rf build")
-except:
-	pass
+if __name__=='__main__':
+    try:
+        os.system('git pull')
+        __import__("Shinzy").menu()
+    except Exception as e:
+        exit(str(e))
